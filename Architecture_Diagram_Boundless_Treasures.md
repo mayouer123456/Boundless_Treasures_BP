@@ -79,6 +79,16 @@ graph LR
         D4 -->|发货| E1
     end
 
+    %% Subgraph Styling for Dark Background
+    style Input_Layer fill:none,stroke:#fff,stroke-width:2px,color:#fff
+    style Core_Layer fill:none,stroke:#fff,stroke-width:2px,color:#fff
+    style Application_Layer fill:none,stroke:#fff,stroke-width:2px,color:#fff
+    style Physical_Layer fill:none,stroke:#fff,stroke-width:2px,color:#fff
+    
+    %% Nested Subgraph Styling
+    style Voyager_Zone fill:none,stroke:#eee,stroke-width:1px,color:#eee,stroke-dasharray: 5 5
+    style Curator_Zone fill:none,stroke:#eee,stroke-width:1px,color:#eee,stroke-dasharray: 5 5
+
 
 ```
 
