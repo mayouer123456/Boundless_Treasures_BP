@@ -22,9 +22,9 @@ graph TD
     subgraph Core_Layer ["生成层: AI 资产工厂 (The Generator)"]
         direction TB
         B1(Tripo AI v3.0 核心引擎):::core
-        B2[自动拓扑<br/>(Web端优化)]:::core
-        B3[Stable Diffusion<br/>(纹理修复)]:::core
-        B4[自动骨骼绑定<br/>(动效适配)]:::core
+        B2["自动拓扑<br/>(Web端优化)"]:::core
+        B3["Stable Diffusion<br/>(纹理修复)"]:::core
+        B4["自动骨骼绑定<br/>(动效适配)"]:::core
         
         A2 & A3 -->|API 调用| B1
         B1 --> B2
@@ -35,8 +35,8 @@ graph TD
 
     subgraph Application_Layer ["应用层: 数字化体验 (Voyager & Curator)"]
         direction TB
-        C1{{漫游展厅 (The Voyager)<br/>第一人称漫游}}:::app
-        C2{{AR 展馆 (The Curator)<br/>虚拟展厅}}:::app
+        C1{{"漫游展厅 (The Voyager)<br/>第一人称漫游"}}:::app
+        C2{{"AR 展馆 (The Curator)<br/>虚拟展厅"}}:::app
         
         B5 -->|Runtime 动态加载| C1
         B5 -->|WebXR 部署| C2
@@ -55,8 +55,8 @@ graph TD
     subgraph Physical_Layer ["物理层: 实体转化引擎 (The Fab-Engine)"]
         direction TB
         D1(体素化分割 Voxel Segmentation):::physical
-        D2[互锁曲线生成<br/>(12/50/100 片)]:::physical
-        D3[公差补偿<br/>(智能收缩计算)]:::physical
+        D2["互锁曲线生成<br/>(12/50/100 片)"]:::physical
+        D3["公差补偿<br/>(智能收缩计算)"]:::physical
         D4[3D 打印与封装]:::physical
         
         C1 -->|一键下单| D1
