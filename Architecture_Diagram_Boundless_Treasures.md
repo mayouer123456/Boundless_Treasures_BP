@@ -53,22 +53,26 @@ graph LR
             C2 --> C2_F1
             C2 --> C2_F2
         end
-        
+
+        %% Connections from Generator
         B5 -->|Runtime 动态加载| C1
         B5 -->|WebXR 部署| C2
+
+        %% Connections to Physical Layer (moved outside to prevent layout locking)
+        C1 -->|一键下单| D1
+        C2 -->|一键下单| D1
     end
 
     subgraph Physical_Layer ["物理层: 实体转化引擎 (The Fab-Engine)"]
         direction TB
+        %% Force Vertical Stack mechanism
         D1("体素化分割 Voxel Segmentation"):::physical
         D2["互锁曲线生成<br/>(12/50/100 片)"]:::physical
         D3["公差补偿<br/>(智能收缩计算)"]:::physical
         D4["3D 打印与封装"]:::physical
         E1["实体文创产品"]:::physical
         
-        C1 -->|一键下单| D1
-        C2 -->|一键下单| D1
-        
+        %% Linear Vertical Connection
         D1 --> D2
         D2 --> D3
         D3 --> D4
