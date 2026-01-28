@@ -35,21 +35,27 @@ graph LR
 
     subgraph Application_Layer ["应用层: 数字化体验 (Voyager & Curator)"]
         direction TB
-        C1{{"漫游展厅 (The Voyager)<br/>第一人称漫游"}}:::app
-        C2{{"AR 展馆 (The Curator)<br/>虚拟展厅"}}:::app
+        
+        subgraph Voyager_Zone ["Voyager (漫游)"]
+            direction TB
+            C1{{"漫游展厅 (The Voyager)<br/>第一人称漫游"}}:::app
+            C1_F1["Unity WebGL / 微信小程序"]
+            C1_F2["FPS 漫游与交互"]
+            C1 --> C1_F1
+            C1 --> C1_F2
+        end
+
+        subgraph Curator_Zone ["Curator (AR)"]
+            direction TB
+            C2{{"AR 展馆 (The Curator)<br/>虚拟展厅"}}:::app
+            C2_F1["虚实叠加 (Real-World Overlay)"]
+            C2_F2["智能光照估计 (Smart Lighting)"]
+            C2 --> C2_F1
+            C2 --> C2_F2
+        end
         
         B5 -->|Runtime 动态加载| C1
         B5 -->|WebXR 部署| C2
-        
-        C1_F1["Unity WebGL / 微信小程序"]
-        C1_F2["FPS 漫游与交互"]
-        C1 --> C1_F1
-        C1 --> C1_F2
-        
-        C2_F1["虚实叠加 (Real-World Overlay)"]
-        C2_F2["智能光照估计 (Smart Lighting)"]
-        C2 --> C2_F1
-        C2 --> C2_F2
     end
 
     subgraph Physical_Layer ["物理层: 实体转化引擎 (The Fab-Engine)"]
@@ -58,13 +64,15 @@ graph LR
         D2["互锁曲线生成<br/>(12/50/100 片)"]:::physical
         D3["公差补偿<br/>(智能收缩计算)"]:::physical
         D4["3D 打印与封装"]:::physical
+        E1["实体文创产品"]:::physical
         
         C1 -->|一键下单| D1
         C2 -->|一键下单| D1
+        
         D1 --> D2
         D2 --> D3
         D3 --> D4
-        D4 -->|发货| E1["实体文创产品"]:::physical
+        D4 -->|发货| E1
     end
 
 
