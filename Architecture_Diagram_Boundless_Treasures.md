@@ -11,7 +11,7 @@ graph TD
     classDef physical fill:#fdd,stroke:#333,stroke-width:2px,color:black;
     classDef user fill:#fff,stroke:#333,stroke-width:4px,stroke-dasharray: 5 5;
 
-    subgraph Input_Layer [输入层: 数据采集 (Input Layer)]
+    subgraph Input_Layer ["输入层: 数据采集 (Input Layer)"]
         A1[用户 / 博物馆管理员]:::user
         A2[照片 / 六视图]:::input
         A3[非结构化文本提示词]:::input
@@ -19,7 +19,7 @@ graph TD
         A1 -->|输入| A3
     end
 
-    subgraph Core_Layer [生成层: AI 资产工厂 (The Generator)]
+    subgraph Core_Layer ["生成层: AI 资产工厂 (The Generator)"]
         direction TB
         B1(Tripo AI v3.0 核心引擎):::core
         B2[自动拓扑<br/>(Web端优化)]:::core
@@ -33,7 +33,7 @@ graph TD
         B4 -->|输出| B5([高保真 3D 资产 <br/>GLB / FBX]):::core
     end
 
-    subgraph Application_Layer [应用层: 数字化体验 (Voyager & Curator)]
+    subgraph Application_Layer ["应用层: 数字化体验 (Voyager & Curator)"]
         direction TB
         C1{{漫游展厅 (The Voyager)<br/>第一人称漫游}}:::app
         C2{{AR 展馆 (The Curator)<br/>虚拟展厅}}:::app
@@ -52,7 +52,7 @@ graph TD
         C2 --> C2_F2
     end
 
-    subgraph Physical_Layer [物理层: 实体转化引擎 (The Fab-Engine)]
+    subgraph Physical_Layer ["物理层: 实体转化引擎 (The Fab-Engine)"]
         direction TB
         D1(体素化分割 Voxel Segmentation):::physical
         D2[互锁曲线生成<br/>(12/50/100 片)]:::physical
