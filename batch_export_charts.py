@@ -59,8 +59,10 @@ for i, code in enumerate(matches):
     
     # Run mmdc
     # -p puppeteer config might be needed for some chars, but defaulting first.
-    # -i input -o output -b transparent background
-    cmd = f'cmd /c "npx -y @mermaid-js/mermaid-cli -i "{mmd_path}" -o "{png_path}" -b transparent"'
+    # -b background color (e.g. "transparent", "white", "#0d1117")
+    # Using GitHub Dark Dimmed (#0d1117) to ensure white text/lines are visible
+    bg_color = "#0d1117" 
+    cmd = f'cmd /c "npx -y @mermaid-js/mermaid-cli -i "{mmd_path}" -o "{png_path}" -b "{bg_color}""'
     
     try:
         # simple run
