@@ -67,8 +67,7 @@ graph TD
         D4 -->|发货| E1["实体文创产品"]:::physical
     end
 
-    %% 关键工作流连接
-    linkStyle default stroke-width:2px,fill:none,stroke:#333;
+
 ```
 
 ## 系统模块详解
