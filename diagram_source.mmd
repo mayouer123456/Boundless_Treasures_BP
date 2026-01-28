@@ -1,0 +1,62 @@
+﻿
+graph TD
+    %% 瀹氫箟鏍峰紡
+    classDef input fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef core fill:#bbf,stroke:#333,stroke-width:2px,color:black,font-weight:bold;
+    classDef app fill:#dfd,stroke:#333,stroke-width:2px,color:black;
+    classDef physical fill:#fdd,stroke:#333,stroke-width:2px,color:black;
+    classDef user fill:#fff,stroke:#333,stroke-width:4px,stroke-dasharray: 5 5;
+    subgraph Input_Layer ["杈撳叆灞? 鏁版嵁閲囬泦 (Input Layer)"]
+        A1[鐢ㄦ埛 / 鍗氱墿棣嗙鐞嗗憳]:::user
+        A2[鐓х墖 / 鍏鍥綸:::input
+        A3[闈炵粨鏋勫寲鏂囨湰鎻愮ず璇峕:::input
+        A1 -->|涓婁紶| A2
+        A1 -->|杈撳叆| A3
+    end
+    subgraph Core_Layer ["鐢熸垚灞? AI 璧勪骇宸ュ巶 (The Generator)"]
+        direction TB
+        B1(Tripo AI v3.0 鏍稿績寮曟搸):::core
+        B2["鑷姩鎷撴墤<br/>(Web绔紭鍖?"]:::core
+        B3["Stable Diffusion<br/>(绾圭悊淇)"]:::core
+        B4["鑷姩楠ㄩ缁戝畾<br/>(鍔ㄦ晥閫傞厤)"]:::core
+        
+        A2 & A3 -->|API 璋冪敤| B1
+        B1 --> B2
+        B2 --> B3
+        B3 --> B4
+        B4 -->|杈撳嚭| B5(["楂樹繚鐪?3D 璧勪骇 <br/>GLB / FBX"]):::core
+    end
+    subgraph Application_Layer ["搴旂敤灞? 鏁板瓧鍖栦綋楠?(Voyager & Curator)"]
+        direction TB
+        C1{{"婕父灞曞巺 (The Voyager)<br/>绗竴浜虹О婕父"}}:::app
+        C2{{"AR 灞曢 (The Curator)<br/>铏氭嫙灞曞巺"}}:::app
+        
+        B5 -->|Runtime 鍔ㄦ€佸姞杞絴 C1
+        B5 -->|WebXR 閮ㄧ讲| C2
+        
+        C1_F1["Unity WebGL / 寰俊灏忕▼搴?]
+        C1_F2["FPS 婕父涓庝氦浜?]
+        C1 --> C1_F1
+        C1 --> C1_F2
+        
+        C2_F1["铏氬疄鍙犲姞 (Real-World Overlay)"]
+        C2_F2["鏅鸿兘鍏夌収浼拌 (Smart Lighting)"]
+        C2 --> C2_F1
+        C2 --> C2_F2
+    end
+    subgraph Physical_Layer ["鐗╃悊灞? 瀹炰綋杞寲寮曟搸 (The Fab-Engine)"]
+        direction TB
+        D1("浣撶礌鍖栧垎鍓?Voxel Segmentation"):::physical
+        D2["浜掗攣鏇茬嚎鐢熸垚<br/>(12/50/100 鐗?"]:::physical
+        D3["鍏樊琛ュ伩<br/>(鏅鸿兘鏀剁缉璁＄畻)"]:::physical
+        D4["3D 鎵撳嵃涓庡皝瑁?]:::physical
+        
+        C1 -->|涓€閿笅鍗晐 D1
+        C2 -->|涓€閿笅鍗晐 D1
+        D1 --> D2
+        D2 --> D3
+        D3 --> D4
+        D4 -->|鍙戣揣| E1["瀹炰綋鏂囧垱浜у搧"]:::physical
+    end
+
+

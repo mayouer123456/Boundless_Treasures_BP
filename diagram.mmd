@@ -1,15 +1,10 @@
-# 无界遗珍 (Boundless Treasures) 系统架构图
-
-基于商业计划书 2.2 核心流程与 4.2 产品技术细节绘制。
-
-```mermaid
-graph LR
+graph TD
     %% 定义样式
-    classDef input fill:#f9f,stroke:#333,stroke-width:2px,color:black,font-weight:bold;
+    classDef input fill:#f9f,stroke:#333,stroke-width:2px;
     classDef core fill:#bbf,stroke:#333,stroke-width:2px,color:black,font-weight:bold;
-    classDef app fill:#dfd,stroke:#333,stroke-width:2px,color:black,font-weight:bold;
-    classDef physical fill:#fdd,stroke:#333,stroke-width:2px,color:black,font-weight:bold;
-    classDef user fill:#fff,stroke:#333,stroke-width:4px,stroke-dasharray: 5 5,color:black,font-weight:bold;
+    classDef app fill:#dfd,stroke:#333,stroke-width:2px,color:black;
+    classDef physical fill:#fdd,stroke:#333,stroke-width:2px,color:black;
+    classDef user fill:#fff,stroke:#333,stroke-width:4px,stroke-dasharray: 5 5;
 
     subgraph Input_Layer ["输入层: 数据采集 (Input Layer)"]
         A1[用户 / 博物馆管理员]:::user
@@ -66,27 +61,3 @@ graph LR
         D3 --> D4
         D4 -->|发货| E1["实体文创产品"]:::physical
     end
-
-
-```
-
-## 系统模块详解
-
-### 1. 输入层 (Input Layer)
-- **来源**：博物馆管理员或个人用户。
-- **数据**：文物的多角度照片（推荐六视图）或描述性文本 Prompt。
-
-### 2. 核心处理层 (The Generator)
-- **引擎**：Tripo AI v3.0。
-- **管线**：
-    - **生成**：将 2D 输入转化为 3D 几何体。
-    - **优化**：自动拓扑 (Auto-Retopology) 以适应 Web 端性能。
-    - **增强**：纹理修复 (Texture Repair) 与自动骨骼绑定 (Auto-Rigging)。
-
-### 3. 应用层 (Application Layer)
-- **The Voyager (漫游展厅)**：基于 Unity 的虚拟博物馆，支持 FPS 漫游与 Runtime 资产热加载。
-- **The Curator (AR 展馆)**：基于 WebXR 的 AR 体验，将文物无缝融入真实环境。
-
-### 4. 物理层 (The Fab-Engine)
-- **转化**：将数字模型转化为可打印的拼图组件。
-- **算法**：利用体素分割与公差补偿算法，确保无需胶水即可实现互锁 (Interlocking) 拼装。
